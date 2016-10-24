@@ -4,3 +4,9 @@ C:\Users\Виктория\Documents\Visual Studio 2015\Projects\ConsoleApplicati
 C:\Users\Виктория\Documents\Visual Studio 2015\Projects\ConsoleApplication8\ConsoleApplication2\ConsoleApplication2\obj\Debug\ConsoleApplication2.exe
 C:\Users\Виктория\Documents\Visual Studio 2015\Projects\ConsoleApplication8\ConsoleApplication2\ConsoleApplication2\obj\Debug\ConsoleApplication2.pdb
 C:\Users\Виктория\Documents\Visual Studio 2015\Projects\ConsoleApplication8\ConsoleApplication2\ConsoleApplication2\obj\Debug\ConsoleApplication2.csprojResolveAssemblyReference.cache
+D:\projects\ConsoleApplication2\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe.config
+D:\projects\ConsoleApplication2\ConsoleApplication2\obj\Debug\ConsoleApplication2.exe
+D:\projects\ConsoleApplication2\ConsoleApplication2\obj\Debug\ConsoleApplication2.pdb
+D:\projects\ConsoleApplication2\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe
+D:\projects\ConsoleApplication2\ConsoleApplication2\bin\Debug\ConsoleApplication2.pdb
+D:\projects\ConsoleApplication2\ConsoleApplication2\obj\Debug\ConsoleApplication2.csprojResolveAssemblyReference.cache
