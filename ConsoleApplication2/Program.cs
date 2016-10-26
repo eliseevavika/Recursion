@@ -11,19 +11,27 @@ namespace ConsoleApplication2
         static void Main(string[] args)
         {
             Console.WriteLine("From 1 to n: " + Increase(5));
-            Console.WriteLine("From a to b : "+ IncreaseOrDecrease(2, 10));
-            Console.WriteLine("From b to a : "+ IncreaseOrDecrease(10, 3));
-            Console.WriteLine("Power 2 number 12: " +PowerOfTwo(12));
-            Console.WriteLine("Amount in figures -1111111: "+AmountInFigures(1111111));
-            Console.WriteLine("Digit numbers from left to right - 4 9 5 0 3 9 :"+PermutationOfDigits(495039));
+            Console.WriteLine("From a to b : " + IncreaseOrDecrease(2, 10));
+            Console.WriteLine("From b to a : " + IncreaseOrDecrease(10, 3));
+            Console.WriteLine("Power 2 number 12: " + PowerOfTwo(12));
+            Console.WriteLine("Amount in figures -1111111: " + AmountInFigures(1111111));
+            Console.WriteLine("Digit numbers from left to right - 4 9 5 0 3 9 :" + PermutationOfDigits(495039));
             Console.WriteLine("Verification of the simplicity- 18, 5 : " + (CheckEase(18, 5)));
             Console.WriteLine("Verification of the simplicity- 29, 5 : " + (CheckEase(29, 5)));
-            
+
+            Console.WriteLine("Factorization: " + Factorization(45, 5));//почему при запуске выводит значения впереди?
+
+           /* Console.WriteLine("Identification of odd numbers");
+            Console.WriteLine("Enter a sequence of numbers:");
+            int n = Convert.ToInt32(Console.ReadLine());
+            */
+            Console.WriteLine(MaxValue());
+
+
 
             Console.ReadLine();
         }
 
-     
         //1-задача От 1 до n
         public static string Increase(int n)
         {
@@ -109,9 +117,9 @@ namespace ConsoleApplication2
 
             if (n < 10)
             {
-                return sum = +n;
+                return sum = n;
             }
-            sum = +AmountInFigures(n / 10) + n % 10;
+            sum = AmountInFigures(n / 10) + n % 10;
             return sum;
         }
 
@@ -128,13 +136,13 @@ namespace ConsoleApplication2
         //7-задач
         //Определение простого числа
 
-        public static bool CheckEase(int n, int k)
+        public static string CheckEase(int n, int k)
         {
             if (n % 2 != 0)
             {
                 if (n % k == 0)
                 {
-                    return false;
+                    return "No";
                 }
 
                 else if (k < n / 2)
@@ -143,7 +151,7 @@ namespace ConsoleApplication2
                 }
                 else
                 {
-                    return true;
+                    return "Yes";
                 }
             }
 
@@ -151,106 +159,105 @@ namespace ConsoleApplication2
             {
                 if (n == 2)
                 {
-                    return true;
-                }
-                return false;
-            }
-         
-
-        }
-
-
-        
-            public static bool Recursion(int n, int i)
-            {
-                if (n < 2)
-                {
-                    return false;
-                } // Базовый случай 
-                else if (n == 2)
-                {
-                    return true;
-                } // Базовый случай 
-                else if (n % i == 0)
-                {
-                    return false;
-                } // Шаг рекурсии / рекурсивное условие
-                else if (i < n / 2)
-                {
-                    return Recursion(n, i + 1);
-                }
-                else
-                {
-                    return true;
-                }
-
-            }
-
-            //8-я задача Разложение на множители - НЕ работает
-
-            public static string Factorization(int n, int k)
-            {
-                if (n % 2 != 0)
-                {
-                    if (n == 1)
-                    {
-                        return n + "";
-                    }
-                    if (n >= k && n % k == 0)
-                    {
-                        if (n == k)
-                        {
-                            return "Yes";
-                        }
-                        return "No";
-                    }
-                    else if (n >= k && n % k != 0)
-                    {
-                        return Factorization(n, k + 1);
-                    }
-                }
-                else
-                {
-                    if (n == 1)
-                    {
-                        return n + "";
-                    }
-                    if (n % 2 != 0)
-                    {
-                        return n + "";
-                    }
-                    return Factorization(n / 2, k);
-                }
-                return " ";//не знаю что вернуть в этом случае функции
-            }
-
-            public static string Palindrome(string a)
-            {
-                if (a.Length == 1)
-                {
                     return "Yes";
                 }
-                if (a.Length % 2 == 0)
+                return "No";
+            }
+
+
+        }
+
+        //8-я задача Разложение на множители - НЕ работает
+        //если берем n=45, k=5, то выводит только 9 и 5 
+        //   непонятно как разложить еще и 9
+
+        public static string Factorization(int n, int k)
+        {
+            if (n == 2)
+            {
+                return n + " ";
+            }
+            else if (n > 2)
+            {
+                if (k > n / 2)
                 {
-                    return Palindrome(a.Length / 2 + "");
+                    //   Console.Write(n);
+                    return n + "";
+                }
 
 
+                if (n % k == 0)
+                {
+
+                    //  Console.Write(" "+ k + " ");
+
+                    return Factorization(n / k, k) + " " + k + " ";
                 }
                 else
                 {
-                    return "No";
+
+                    return Factorization(n, k + 1) + " ";
                 }
-                if (a.Length / 2 == 2)
 
-                    return "";
             }
-
+            return " ";
         }
+
+
+
+
+        public static string Palindrome(string a)
+        {
+            if (a.Length == 1)
+            {
+                return "Yes";
+            }
+            if (a.Length % 2 == 0)
+            {
+
+                return Palindrome(a.Length / 2 + "");
+
+            }
+            else
+            {
+                return "No";
+            }
+            //   System.Object.ReferenceEquals(a, b);
+        }
+
+
+
+        //вывести все нечетные числа
+    /*   public static int IdentificationOddNumbers(int n)
+          {
+            if(n<0)
+            {
+                IdentificationOddNumbers(n);
+            }
+              if((n / 10) % 2==0)
+              {
+                  return IdentificationOddNumbers(n/10);
+
+              }
+            IdentificationOddNumbers();
+          }*/
+
+        //вывести мах число последовательности
+        public static int MaxValue()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            if (n==0)
+            {
+                return 0;
+            }
+            else
+            {
+                return Math.Max(n, MaxValue());
+            }
+        }
+
+
+
+
     }
-
-
-
-
-
-
-
+}
